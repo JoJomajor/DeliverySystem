@@ -1,2 +1,16 @@
 # DeliverySystem
-.NET C# training project to practice event-driven design, delegates, and modular architecture. The solution includes an inventory management system with event-based notifications, handlers, and subscriber classes organized by best practices for multi-script .NET projects.
+Тренировочный проект
+Консольный симулятор диспетчера доставки, который контролирует процесс независимой курьерской организации по принципу C2C.
+Учебный пет-проект: закрепление базы C# (события, делегаты, асинхронность, персистентность).
+
+## Стек и запуск
+- .NET 11, C# 15, внешних зависимостей нет
+- Запуск: `dotnet run` из папки проекта
+
+## Что умеет
+-
+
+## Архитектура
+- `Models/` — SystemUser, Client, Delivery
+
+
