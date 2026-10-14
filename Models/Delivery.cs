@@ -12,7 +12,7 @@ namespace DeliverySystem.Models
         public int Currency {get; private set;} //* Валюта
         public string StartingAddress {get; init;} //todo Добавить парсинг по формату адреса
         public string EndingAddress {get; init; }
-        static int _isCountObject = 0;
+        //static int _isCountObject = 0;
 
         #endregion
 

@@ -20,18 +20,39 @@ namespace DeliverySystem.Models
         public Client(Guid id, string name, string address, string email, string phoneNumber)
         {
             if (string.IsNullOrWhiteSpace(name))
-                throw new ArgumentNullException(paramName: name, message: "Вводимое значение является пустым или состоит из пустых символов.");
+                throw new ArgumentNullException(paramName: nameof(name), message: "Вводимое значение является пустым или состоит из пустых символов.");
 
             if (string.IsNullOrWhiteSpace(address))
-                throw new ArgumentNullException(paramName: address, message: "Вводимое значение является пустым или состоит из пустых символов.");
+                throw new ArgumentNullException(paramName: nameof(address), message: "Вводимое значение является пустым или состоит из пустых символов.");
 
             if (string.IsNullOrWhiteSpace(email))
-                throw new ArgumentNullException(paramName: email, message: "Вводимое значение является пустым или состоит из пустых символов.");
+                throw new ArgumentNullException(paramName: nameof(email), message: "Вводимое значение является пустым или состоит из пустых символов.");
 
             if (string.IsNullOrWhiteSpace(phoneNumber))
-                throw new ArgumentNullException(paramName: phoneNumber, message: "Вводимое значение является пустым или состоит из пустых символов.");
+                throw new ArgumentNullException(paramName: nameof(phoneNumber), message: "Вводимое значение является пустым или состоит из пустых символов.");
 
             Id = id;
+            Name = name;
+            Address = address;
+            Email = email;
+            PhoneNumber = phoneNumber;
+        }
+
+        public Client(string id, string name, string address, string email, string phoneNumber)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+                throw new ArgumentNullException(paramName: nameof(name), message: "Вводимое значение является пустым или состоит из пустых символов.");
+
+            if (string.IsNullOrWhiteSpace(address))
+                throw new ArgumentNullException(paramName: nameof(address), message: "Вводимое значение является пустым или состоит из пустых символов.");
+
+            if (string.IsNullOrWhiteSpace(email))
+                throw new ArgumentNullException(paramName: nameof(email), message: "Вводимое значение является пустым или состоит из пустых символов.");
+
+            if (string.IsNullOrWhiteSpace(phoneNumber))
+                throw new ArgumentNullException(paramName: nameof(phoneNumber), message: "Вводимое значение является пустым или состоит из пустых символов.");
+
+            Id = Guid.Parse(id);
             Name = name;
             Address = address;
             Email = email;
