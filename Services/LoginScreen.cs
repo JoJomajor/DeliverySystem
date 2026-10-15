@@ -1,17 +1,19 @@
 using DeliverySystem.Models;
-using DeliverySystem.Settings;
+using DeliverySystem.Service;
 using Microsoft.Extensions.Configuration;
 using System.Text.Json;
 
 //todo 1.Исправить хранение отнсотельного аддресса для папки с бд
+//todo 2.Исправить технологию хранение пароля
 
 
-namespace DeliverySystem.Utils
+namespace DeliverySystem.Service
 {
     public class LoginScreen
     {
-        List<SystemUser> systemUsers = [];
+        ConsoleWriter consoleWriter = new();
 
+        List<SystemUser> systemUsers = [];
         string? _pathSystemUsers;
         readonly string baseDir = AppContext.BaseDirectory;
 
@@ -19,6 +21,8 @@ namespace DeliverySystem.Utils
         public void MainProgramm()
         {
             LoadConfigData();
+
+            consoleWriter.WriteLoginScreen();
 
             Console.WriteLine("ЛОГИН: ");
             string? inputLogin = Console.ReadLine();
@@ -72,8 +76,6 @@ namespace DeliverySystem.Utils
 
 
             systemUsers = JsonSerializer.Deserialize<List<SystemUser>>(json,option) ?? new List<SystemUser>();
-
-
 
             if(systemUsers.Count == 0)
                 throw new ArgumentNullException(paramName: nameof(systemUsers), message: "Коллекция хранения пользователей системы не инициализирована корректно.");

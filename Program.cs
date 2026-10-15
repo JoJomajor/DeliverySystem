@@ -1,8 +1,19 @@
-﻿using DeliverySystem.Utils;
+﻿using DeliverySystem.Service;
 
-LoginScreen loginScreen = new();
-loginScreen.MainProgramm();
+try
+{
+    LoginScreen loginScreen = new();
+    loginScreen.MainProgramm();
+}
+catch(Exception ex)
+{
+    Console.WriteLine(ex.Message);
+    Console.WriteLine(ex.StackTrace);
+
+    Console.ReadLine();
+}
 
 
-Console.ReadLine();
+
+
 
